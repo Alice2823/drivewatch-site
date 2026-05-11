@@ -123,16 +123,22 @@ function MagneticButton({
   children,
   href,
   ghost = false,
+  target,
+  rel,
 }: {
   children: React.ReactNode;
   href: string;
   ghost?: boolean;
+  target?: string;
+  rel?: string;
 }) {
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
   return (
     <motion.a
       href={href}
+      target={target}
+      rel={rel}
       onMouseMove={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         setPos({
@@ -194,14 +200,18 @@ export default function Home() {
             {isDownloadMenuOpen && (
               <div className="absolute right-0 z-30 mt-3 w-72 rounded-2xl border border-cyan-300/35 bg-slate-950/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur">
                 <a
-                  href="/downloads/DriveWatch-Setup.exe"
+                  href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mb-2 block rounded-xl border border-cyan-300/25 bg-slate-900/70 p-3 transition-colors hover:bg-cyan-500/10"
                 >
                   <p className="text-sm font-semibold text-cyan-100">Windows (.exe)</p>
                   <p className="text-xs text-cyan-100/70">Version 1.2.3 • 98.3 MB</p>
                 </a>
                 <a
-                  href="/downloads/DriveWatch.dmg"
+                  href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block rounded-xl border border-cyan-300/25 bg-slate-900/70 p-3 transition-colors hover:bg-cyan-500/10"
                 >
                   <p className="text-sm font-semibold text-cyan-100">macOS (.dmg)</p>
@@ -234,7 +244,11 @@ export default function Home() {
               automatic updates.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <MagneticButton href="/downloads/DriveWatch-Setup.exe">
+              <MagneticButton
+                href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Download for Windows <ArrowRight size={16} />
               </MagneticButton>
               <MagneticButton href="#features" ghost>
@@ -485,7 +499,11 @@ export default function Home() {
               Install guide: Download EXE → Run setup → Launch DriveWatch → Enable notifications.
             </p>
           </div>
-          <MagneticButton href="/downloads/DriveWatch-Setup.exe">
+          <MagneticButton
+            href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Download size={16} /> Download DriveWatch for Windows
           </MagneticButton>
         </div>
@@ -508,7 +526,11 @@ export default function Home() {
               Install guide: Download DMG → Open package → Drag to Applications → Launch DriveWatch.
             </p>
           </div>
-          <MagneticButton href="/downloads/DriveWatch.dmg">
+          <MagneticButton
+            href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Download size={16} /> Download DriveWatch for macOS
           </MagneticButton>
         </div>
@@ -551,10 +573,18 @@ export default function Home() {
             real-time intelligence for every device you manage.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <MagneticButton href="/downloads/DriveWatch-Setup.exe">
+            <MagneticButton
+              href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Download DriveWatch for Windows
             </MagneticButton>
-            <MagneticButton href="/downloads/DriveWatch.dmg">
+            <MagneticButton
+              href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Download DriveWatch for macOS
             </MagneticButton>
           </div>
@@ -577,7 +607,13 @@ export default function Home() {
           </div>
           <nav className="flex flex-wrap gap-5 text-sm text-cyan-100/80">
             <a href="#features">Features</a>
-            <a href="/downloads/DriveWatch-Setup.exe">Download</a>
+            <a
+              href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download
+            </a>
             <a href="https://www.linkedin.com/in/ap2823" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
