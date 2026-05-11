@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  --background: #04050a;
+  --foreground: #e9f8ff;
+  --panel: rgba(11, 16, 32, 0.75);
+  --panel-border: rgba(125, 211, 252, 0.25);
+  --glow-cyan: 34, 211, 238;
+  --glow-purple: 147, 51, 234;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  scrollbar-color: rgba(125, 211, 252, 0.55) rgba(11, 16, 32, 0.2);
+}
+
+body {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(var(--glow-cyan), 0.16), transparent 32%),
+    radial-gradient(circle at 90% 15%, rgba(var(--glow-purple), 0.15), transparent 38%),
+    linear-gradient(140deg, #03050a 0%, #070d1f 45%, #020409 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.glass-card {
+  background: linear-gradient(
+    160deg,
+    rgba(19, 26, 47, 0.8) 0%,
+    rgba(9, 13, 28, 0.65) 100%
+  );
+  border: 1px solid var(--panel-border);
+  backdrop-filter: blur(16px);
+}
+
+.neon-outline {
+  box-shadow:
+    0 0 0 1px rgba(125, 211, 252, 0.25),
+    0 0 24px rgba(34, 211, 238, 0.22),
+    0 0 60px rgba(147, 51, 234, 0.15);
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+}
+
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    rgba(var(--glow-cyan), 0.8),
+    rgba(var(--glow-purple), 0.8),
+    rgba(var(--glow-cyan), 0.8)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderRotate 5.5s linear infinite;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(40px);
+  animation: floatSoft 10s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateY(-26px) scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+    transform: rotate(0deg) scale(1.4);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.4);
+  }
+}
