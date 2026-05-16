@@ -8,7 +8,7 @@ type DownloadCtaProps = {
 };
 
 export function DownloadCta({
-  heading = "Download DriveWatch for Windows",
+  heading = "Download DriveWatch for Windows & macOS",
   description = "Install DriveWatch for SSD health monitoring, fan RPM context, CPU monitoring, GPU temperature tracking, disk health analytics, and system diagnostics.",
 }: DownloadCtaProps) {
   return (
@@ -25,7 +25,7 @@ export function DownloadCta({
               Version {softwareVersion}
             </span>
             <span className="rounded-full border border-cyan-300/35 px-3 py-1">
-              Windows installer
+              Windows & macOS
             </span>
             <span className="rounded-full border border-cyan-300/35 px-3 py-1">
               Hardware analytics
@@ -43,6 +43,14 @@ export function DownloadCta({
             className="neon-outline inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-violet-500 px-6 py-3 text-sm font-semibold text-slate-950 transition-all duration-300 hover:brightness-110"
           >
             <Download size={16} /> Windows
+          </a>
+          <a
+            href={downloadLinks.mac}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/50 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:bg-cyan-400/20"
+          >
+            <Download size={16} /> macOS
           </a>
           <Link
             href="/download"

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Download } from "lucide-react";
-import { SiteChrome } from "../components/SiteChrome";
 import { blogPosts, createMetadata, featurePages } from "../lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -15,8 +14,8 @@ export const metadata: Metadata = createMetadata({
 
 export default function BlogPage() {
   return (
-    <SiteChrome>
-      <section className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-16 pt-20 md:px-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+    <>
+      <section className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-16 pt-10 md:px-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <div>
           <span className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs tracking-[0.18em] text-cyan-100">
             DRIVEWATCH GUIDES
@@ -100,6 +99,6 @@ export default function BlogPage() {
           ))}
         </div>
       </section>
-    </SiteChrome>
+    </>
   );
 }

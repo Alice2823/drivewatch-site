@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Activity, ArrowRight, CheckCircle2, Gauge, ShieldCheck } from "lucide-react";
 import { DownloadCta } from "./DownloadCta";
-import { SiteChrome } from "./SiteChrome";
 import { FeaturePage, featurePages } from "../lib/seo";
 
 type SeoFeaturePageProps = {
@@ -15,8 +14,8 @@ export function SeoFeaturePage({ page }: SeoFeaturePageProps) {
     .filter((relatedPage): relatedPage is FeaturePage => Boolean(relatedPage));
 
   return (
-    <SiteChrome>
-      <section className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-20 pt-20 md:px-10 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+    <>
+      <section className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-20 pt-10 md:px-10 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
         <div>
           <span className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs tracking-[0.18em] text-cyan-100">
             {page.eyebrow.toUpperCase()}
@@ -147,6 +146,6 @@ export function SeoFeaturePage({ page }: SeoFeaturePageProps) {
       </section>
 
       <DownloadCta />
-    </SiteChrome>
+    </>
   );
 }

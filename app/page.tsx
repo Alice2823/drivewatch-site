@@ -257,72 +257,10 @@ function MagneticButton({
 export default function Home() {
   const [activeFaq, setActiveFaq] = useState(0);
   const [modalImage, setModalImage] = useState<string | null>(null);
-  const [isDownloadMenuOpen, setIsDownloadMenuOpen] = useState(false);
 
   return (
-    <main className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 cyber-grid opacity-30" />
-      <div className="glow-orb left-[6%] top-28 h-48 w-48 bg-cyan-400/25" />
-      <div className="glow-orb right-[8%] top-96 h-60 w-60 bg-violet-500/20 [animation-delay:2s]" />
-
-      <section className="relative mx-auto max-w-7xl px-6 pb-28 pt-8 md:px-10">
-        <header className="mb-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/images/drivewatch-logo.png"
-              alt="DriveWatch logo"
-              width={44}
-              height={44}
-              className="rounded-full bg-white p-0.5 ring-1 ring-cyan-200/45"
-            />
-            <div>
-              <p className="text-lg font-semibold tracking-wide">DriveWatch</p>
-              <p className="text-xs text-cyan-100/70">Live Storage Intelligence</p>
-            </div>
-          </div>
-          <div className="relative">
-            <button
-              type="button"
-              onClick={() => setIsDownloadMenuOpen((prev) => !prev)}
-              aria-haspopup="menu"
-              aria-expanded={isDownloadMenuOpen}
-              className="neon-outline inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-violet-500 px-6 py-3 text-sm font-semibold text-slate-950 transition-all duration-300 hover:brightness-110"
-            >
-              <Download size={16} /> Download
-              <ChevronDown
-                size={16}
-                className={`transition-transform ${isDownloadMenuOpen ? "rotate-180" : ""}`}
-              />
-            </button>
-            {isDownloadMenuOpen && (
-              <div
-                role="menu"
-                className="absolute right-0 z-30 mt-3 w-72 rounded-2xl border border-cyan-300/35 bg-slate-950/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
-              >
-                <a
-                  href={downloadLinks.windows}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  role="menuitem"
-                  className="mb-2 block rounded-xl border border-cyan-300/25 bg-slate-900/70 p-3 transition-colors hover:bg-cyan-500/10"
-                >
-                  <p className="text-sm font-semibold text-cyan-100">Windows (.exe)</p>
-                  <p className="text-xs text-cyan-100/70">Version {softwareVersion} - 98.3 MB</p>
-                </a>
-                <a
-                  href={downloadLinks.mac}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  role="menuitem"
-                  className="block rounded-xl border border-cyan-300/25 bg-slate-900/70 p-3 transition-colors hover:bg-cyan-500/10"
-                >
-                  <p className="text-sm font-semibold text-cyan-100">macOS (.dmg)</p>
-                  <p className="text-xs text-cyan-100/70">Version {softwareVersion} - 116 MB</p>
-                </a>
-              </div>
-            )}
-          </div>
-        </header>
+    <>
+      <section className="relative mx-auto max-w-7xl px-6 pb-28 md:px-10">
 
         <div className="grid gap-16 lg:grid-cols-[1.12fr_1fr]">
           <motion.div
@@ -332,7 +270,7 @@ export default function Home() {
             transition={{ duration: 0.7 }}
           >
             <span className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs tracking-[0.18em] text-cyan-100">
-              PROFESSIONAL WINDOWS MONITORING SOFTWARE
+              PROFESSIONAL MONITORING FOR WINDOWS & MACOS
             </span>
             <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
               Monitor. Protect.
@@ -352,10 +290,15 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Download for Windows <ArrowRight size={16} />
+                Windows <ArrowRight size={16} />
               </MagneticButton>
-              <MagneticButton href="#features" ghost>
-                Explore Features
+              <MagneticButton
+                href={downloadLinks.mac}
+                target="_blank"
+                rel="noopener noreferrer"
+                ghost
+              >
+                macOS <ArrowRight size={16} />
               </MagneticButton>
             </div>
           </motion.div>
@@ -788,40 +731,9 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-cyan-300/15 px-6 py-8 md:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/images/drivewatch-logo.png"
-              alt="DriveWatch"
-              width={38}
-              height={38}
-              className="rounded-full bg-white p-0.5"
-            />
-            <div>
-              <p className="font-semibold text-white">DriveWatch</p>
-            </div>
-          </div>
-          <nav className="flex flex-wrap gap-5 text-sm text-cyan-100/80">
-            <a href="#features">Features</a>
-            <Link href="/ssd-health-monitor">SSD Health</Link>
-            <Link href="/fan-rpm-monitor">Fan RPM</Link>
-            <Link href="/cpu-temperature-monitor">CPU Temps</Link>
-            <Link href="/gpu-temperature-monitor">GPU Temps</Link>
-            <Link href="/system-diagnostics">Diagnostics</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/download">Download</Link>
-            <a href="https://www.linkedin.com/in/ap2823" target="_blank" rel="noopener noreferrer">
-              LinkedIn
-            </a>
-          </nav>
-          <div className="text-xs text-cyan-100/60">&copy; {new Date().getFullYear()} DriveWatch. All rights reserved.</div>
-        </div>
-      </footer>
-
       {modalImage && (
         <div
-          className="fixed inset-0 z-50 grid place-items-center bg-black/80 p-4"
+          className="fixed inset-0 z-[110] grid place-items-center bg-black/80 p-4"
           onClick={() => setModalImage(null)}
         >
           <Image
@@ -833,6 +745,6 @@ export default function Home() {
           />
         </div>
       )}
-    </main>
+    </>
   );
 }

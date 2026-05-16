@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Download, MonitorCog, ShieldCheck } from "lucide-react";
-import { SiteChrome } from "../components/SiteChrome";
 import {
   createMetadata,
   downloadLinks,
@@ -43,14 +42,14 @@ const faqs = [
 
 export default function DownloadPage() {
   return (
-    <SiteChrome>
-      <section className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-16 pt-20 md:px-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+    <>
+      <section className="relative mx-auto grid max-w-7xl gap-14 px-6 pb-16 pt-10 md:px-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
         <div>
           <span className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs tracking-[0.18em] text-cyan-100">
             DRIVEWATCH DOWNLOAD
           </span>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
-            Download DriveWatch for Windows monitoring
+            Download DriveWatch for Windows & macOS
           </h1>
           <p className="mt-6 max-w-2xl text-base text-cyan-50/80 md:text-lg">
             Install DriveWatch for SSD health monitoring, fan RPM monitoring,
@@ -82,7 +81,7 @@ export default function DownloadPage() {
           <h2 className="mb-4 text-2xl font-semibold text-white">Compatibility</h2>
           <div className="space-y-3 text-sm text-cyan-100/75">
             <p>Version: {softwareVersion}</p>
-            <p>Primary platform: Windows monitoring software</p>
+            <p>Primary platform: Windows & macOS monitoring</p>
             <p>Package: secure installer with automatic update workflow</p>
             <p>Use cases: SSD health, disk health, thermals, fan RPM, diagnostics</p>
           </div>
@@ -172,9 +171,17 @@ export default function DownloadPage() {
             >
               Download Windows <ArrowRight size={16} />
             </a>
+            <a
+              href={downloadLinks.mac}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/50 bg-cyan-500/10 px-6 py-3 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:bg-cyan-400/20"
+            >
+              Download macOS <ArrowRight size={16} />
+            </a>
           </div>
         </div>
       </section>
-    </SiteChrome>
+    </>
   );
 }

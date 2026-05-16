@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CalendarDays, Download } from "lucide-react";
 import { DownloadCta } from "../../components/DownloadCta";
-import { SiteChrome } from "../../components/SiteChrome";
 import { blogPosts, createMetadata, getBlogPost, getFeaturePage } from "../../lib/seo";
 
 type BlogArticlePageProps = {
@@ -48,8 +47,8 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   const relatedFeature = getFeaturePage(post.relatedFeatureSlug);
 
   return (
-    <SiteChrome>
-      <article className="relative mx-auto max-w-4xl px-6 pb-16 pt-20 md:px-10">
+    <>
+      <article className="relative mx-auto max-w-4xl px-6 pb-16 md:px-10">
         <Link
           href="/blog"
           className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 hover:text-white"
@@ -107,6 +106,6 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         </div>
       </article>
       <DownloadCta />
-    </SiteChrome>
+    </>
   );
 }
