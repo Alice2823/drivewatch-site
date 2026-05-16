@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { blogPosts, downloadLinks, featurePages, softwareVersion } from "./lib/seo";
 import {
   Activity,
   AlertTriangle,
@@ -27,7 +29,7 @@ const features = [
   {
     title: "Real-Time Drive Monitoring",
     icon: Activity,
-    desc: "Track utilization, speed, health, and thermals with high-frequency live telemetry.",
+    desc: "Track utilization, speed, SSD health, disk health, and thermals with high-frequency live telemetry.",
   },
   {
     title: "USB Detection",
@@ -42,7 +44,7 @@ const features = [
   {
     title: "Smart Health Analytics",
     icon: ShieldCheck,
-    desc: "Surface proactive health scoring and predictive risk indicators before failure.",
+    desc: "Surface proactive SSD health monitoring, disk health analytics, and predictive risk indicators before failure.",
   },
   {
     title: "Recovery Lab",
@@ -52,7 +54,7 @@ const features = [
   {
     title: "Performance Tracking",
     icon: Gauge,
-    desc: "Analyze read/write throughput, queue depth, and sustained load behavior trends.",
+    desc: "Analyze read/write throughput, queue depth, sustained load behavior, and hardware analytics trends.",
   },
   {
     title: "Device Logs",
@@ -82,19 +84,111 @@ const features = [
   {
     title: "Lightweight Performance",
     icon: Cpu,
-    desc: "Engineered for low overhead so monitoring never slows your critical workflows.",
+    desc: "Engineered for low overhead so PC monitoring software never slows your critical workflows.",
+  },
+  {
+    title: "SSD Health Monitor",
+    icon: HardDrive,
+    desc: "Check SSD health, storage temperature, activity spikes, and disk health from a clean monitoring workspace.",
+  },
+  {
+    title: "Fan RPM Monitoring",
+    icon: Gauge,
+    desc: "Understand fan RPM monitoring context alongside CPU temperature, GPU temperature tracking, and system load.",
+  },
+  {
+    title: "CPU & GPU Monitoring",
+    icon: Cpu,
+    desc: "Monitor CPU temperature, GPU temperature tracking, and performance behavior for stable Windows systems.",
+  },
+  {
+    title: "System Diagnostics",
+    icon: Activity,
+    desc: "Run practical Windows system diagnostics with storage, thermal, event, and smart alert visibility.",
+  },
+  {
+    title: "Disk Health Analytics",
+    icon: LineChart,
+    desc: "Turn raw drive activity into readable disk health analytics for internal, external, USB, and NAS storage.",
   },
 ];
 
 const faqItems = [
-  "What is DriveWatch?",
-  "Is DriveWatch free?",
-  "Does it support NAS monitoring?",
-  "Can it monitor USB devices?",
-  "Does it include automatic updates?",
-  "Is it lightweight?",
-  "Is it safe?",
-  "Does it support multiple drives?",
+  {
+    question: "What is DriveWatch?",
+    answer:
+      "DriveWatch is professional Windows monitoring software for SSD health monitoring, disk health analytics, fan RPM monitoring context, CPU monitoring, GPU temperature tracking, USB monitoring, NAS visibility, and system diagnostics.",
+  },
+  {
+    question: "Is DriveWatch free?",
+    answer:
+      "The website currently provides public DriveWatch installer downloads so users can try the monitoring dashboard, smart alerts, and hardware analytics workflow.",
+  },
+  {
+    question: "Does it support NAS monitoring?",
+    answer:
+      "Yes. DriveWatch includes NAS monitoring content and workflows for mapped storage, response latency, activity flow, and status visibility.",
+  },
+  {
+    question: "Can it monitor USB devices?",
+    answer:
+      "DriveWatch includes USB monitoring for connected devices, trust status, transfer spikes, serial identities, and device events.",
+  },
+  {
+    question: "Does it include automatic updates?",
+    answer:
+      "Yes. DriveWatch highlights a secure automatic update workflow with release notifications and one-click update behavior.",
+  },
+  {
+    question: "Is it lightweight?",
+    answer:
+      "DriveWatch is built as lightweight PC monitoring software with a low-overhead dashboard for ongoing hardware monitoring.",
+  },
+  {
+    question: "Is it safe?",
+    answer:
+      "DriveWatch uses a secure installer workflow, public release downloads, and clear update messaging for safer installation and maintenance.",
+  },
+  {
+    question: "Does it support multiple drives?",
+    answer:
+      "DriveWatch is designed for multi-drive visibility across internal drives, external storage, USB devices, and NAS environments.",
+  },
+];
+
+const seoFeatureSections = [
+  {
+    title: "SSD Health Monitoring",
+    href: "/ssd-health-monitor",
+    desc: "Use DriveWatch as an SSD health monitor and disk health checker for temperature trends, storage activity, smart alerts, and disk health analytics.",
+  },
+  {
+    title: "Fan RPM Monitoring",
+    href: "/fan-rpm-monitor",
+    desc: "Review fan RPM monitoring context with CPU temperature, GPU temperature tracking, and workload behavior to understand cooling performance.",
+  },
+  {
+    title: "CPU & GPU Monitoring",
+    href: "/cpu-temperature-monitor",
+    desc: "Track CPU monitoring, CPU temperature, GPU monitoring, and GPU temperature tracking alongside storage and system diagnostics.",
+  },
+  {
+    title: "System Diagnostics",
+    href: "/system-diagnostics",
+    desc: "Diagnose Windows systems with hardware monitoring, event logs, thermal awareness, storage health, and proactive alert workflows.",
+  },
+  {
+    title: "Disk Health Analytics",
+    href: "/ssd-health-monitor",
+    desc: "Turn drive performance, disk health, USB activity, and NAS behavior into readable hardware analytics for maintenance decisions.",
+  },
+];
+
+const downloadDetails = [
+  "Compatible with Windows monitoring software workflows",
+  "Includes SSD health monitor and disk health checker coverage",
+  "Supports fan RPM, CPU, and GPU monitoring context",
+  "Designed for hardware analytics, alerts, and system diagnostics",
 ];
 
 const galleryImages = [
@@ -188,7 +282,10 @@ export default function Home() {
           </div>
           <div className="relative">
             <button
+              type="button"
               onClick={() => setIsDownloadMenuOpen((prev) => !prev)}
+              aria-haspopup="menu"
+              aria-expanded={isDownloadMenuOpen}
               className="neon-outline inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-violet-500 px-6 py-3 text-sm font-semibold text-slate-950 transition-all duration-300 hover:brightness-110"
             >
               <Download size={16} /> Download
@@ -198,24 +295,29 @@ export default function Home() {
               />
             </button>
             {isDownloadMenuOpen && (
-              <div className="absolute right-0 z-30 mt-3 w-72 rounded-2xl border border-cyan-300/35 bg-slate-950/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur">
+              <div
+                role="menu"
+                className="absolute right-0 z-30 mt-3 w-72 rounded-2xl border border-cyan-300/35 bg-slate-950/95 p-2 shadow-[0_20px_60px_rgba(0,0,0,0.45)] backdrop-blur"
+              >
                 <a
-                  href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+                  href={downloadLinks.windows}
                   target="_blank"
                   rel="noopener noreferrer"
+                  role="menuitem"
                   className="mb-2 block rounded-xl border border-cyan-300/25 bg-slate-900/70 p-3 transition-colors hover:bg-cyan-500/10"
                 >
                   <p className="text-sm font-semibold text-cyan-100">Windows (.exe)</p>
-                  <p className="text-xs text-cyan-100/70">Version 1.2.3 • 98.3 MB</p>
+                  <p className="text-xs text-cyan-100/70">Version {softwareVersion} - 98.3 MB</p>
                 </a>
                 <a
-                  href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg"
+                  href={downloadLinks.mac}
                   target="_blank"
                   rel="noopener noreferrer"
+                  role="menuitem"
                   className="block rounded-xl border border-cyan-300/25 bg-slate-900/70 p-3 transition-colors hover:bg-cyan-500/10"
                 >
                   <p className="text-sm font-semibold text-cyan-100">macOS (.dmg)</p>
-                  <p className="text-xs text-cyan-100/70">Version 1.2.3 • 116 MB</p>
+                  <p className="text-xs text-cyan-100/70">Version {softwareVersion} - 116 MB</p>
                 </a>
               </div>
             )}
@@ -230,7 +332,7 @@ export default function Home() {
             transition={{ duration: 0.7 }}
           >
             <span className="mb-4 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-3 py-1 text-xs tracking-[0.18em] text-cyan-100">
-              PROFESSIONAL STORAGE MANAGEMENT
+              PROFESSIONAL WINDOWS MONITORING SOFTWARE
             </span>
             <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-6xl">
               Monitor. Protect.
@@ -239,13 +341,14 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cyan-50/80 md:text-lg">
-              DriveWatch helps you monitor drives, USB devices, and NAS systems
-              with real-time analytics, smart alerts, recovery tools, and
-              automatic updates.
+              DriveWatch helps you monitor SSD health, disk health, USB devices,
+              NAS systems, fan RPM context, CPU temperature, and GPU temperature
+              tracking with real-time analytics, smart alerts, recovery tools,
+              and automatic updates.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <MagneticButton
-                href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+                href={downloadLinks.windows}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -272,7 +375,7 @@ export default function Home() {
             </div>
             <Image
               src="/images/drivewatch-dashboard.png"
-              alt="DriveWatch software preview"
+              alt="DriveWatch SSD health monitor and hardware diagnostics dashboard preview"
               width={1200}
               height={700}
               priority
@@ -297,11 +400,12 @@ export default function Home() {
 
       <section id="features" className="mx-auto max-w-7xl px-6 py-20 md:px-10">
         <h2 className="mb-3 text-3xl font-semibold text-white md:text-4xl">
-          Purpose-built features for serious monitoring
+          Purpose-built features for serious PC monitoring
         </h2>
         <p className="mb-10 max-w-3xl text-cyan-50/70">
-          Every panel, signal, and alert is tuned for real-world storage
-          operations and high confidence decision-making.
+          Every panel, signal, and alert is tuned for SSD health monitoring,
+          disk health analytics, fan RPM context, CPU monitoring, GPU monitoring,
+          and high confidence diagnostic decisions.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
@@ -316,6 +420,41 @@ export default function Home() {
               <feature.icon className="mb-4 h-6 w-6 text-cyan-300" />
               <h3 className="mb-2 text-lg font-medium text-cyan-50">{feature.title}</h3>
               <p className="text-sm text-cyan-50/70">{feature.desc}</p>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16 md:px-10">
+        <div className="mb-10 max-w-3xl">
+          <h2 className="mb-3 text-3xl font-semibold text-white md:text-4xl">
+            Hardware monitoring and system diagnostics
+          </h2>
+          <p className="text-cyan-50/70">
+            DriveWatch connects the search-critical workflows people expect from
+            premium Windows monitoring software: SSD health monitoring, fan RPM
+            monitoring, CPU temperature monitoring, GPU temperature tracking,
+            system diagnostics, and disk health analytics.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {seoFeatureSections.map((section, index) => (
+            <motion.article
+              key={section.title}
+              className="rounded-2xl glass-card p-5 transition-all hover:-translate-y-1 hover:neon-outline"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.35, delay: index * 0.04 }}
+            >
+              <h3 className="mb-2 text-xl font-semibold text-white">{section.title}</h3>
+              <p className="mb-5 text-sm leading-6 text-cyan-50/70">{section.desc}</p>
+              <Link
+                href={section.href}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 hover:text-white"
+              >
+                Learn more <ArrowRight size={15} />
+              </Link>
             </motion.article>
           ))}
         </div>
@@ -429,7 +568,7 @@ export default function Home() {
           </div>
           <div className="mt-8 rounded-2xl border border-cyan-300/25 bg-slate-900/70 p-5">
             <div className="mb-3 flex items-center justify-between text-sm text-cyan-100/80">
-              <span>DriveWatch v1.2.3 update package</span>
+              <span>DriveWatch v{softwareVersion} update package</span>
               <span>78%</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-cyan-950">
@@ -470,9 +609,11 @@ export default function Home() {
         <div className="grid gap-5 sm:grid-cols-2">
           {galleryImages.map((item) => (
             <motion.button
+              type="button"
               key={item.id}
               onClick={() => setModalImage(item.src)}
               whileHover={{ y: -4, scale: 1.01 }}
+              aria-label={`Open ${item.alt}`}
               className="group relative overflow-hidden rounded-2xl border border-cyan-300/25"
             >
               <Image src={item.src} alt={item.alt} width={1000} height={600} />
@@ -482,25 +623,81 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 py-14 md:px-10">
+        <div className="mb-8 max-w-3xl">
+          <h2 className="mb-3 text-3xl font-semibold text-white md:text-4xl">
+            Monitoring guides and feature pages
+          </h2>
+          <p className="text-cyan-100/75">
+            Explore deeper DriveWatch resources for SSD health monitoring, fan
+            RPM monitoring, CPU temperature monitoring, GPU monitoring, disk
+            health analytics, and Windows system diagnostics.
+          </p>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <div className="rounded-2xl glass-card p-6">
+            <h3 className="mb-4 text-xl font-semibold text-white">Feature pages</h3>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {featurePages.map((page) => (
+                <Link
+                  key={page.slug}
+                  href={page.slug}
+                  className="rounded-xl border border-cyan-300/20 bg-slate-900/60 p-4 text-sm font-semibold text-cyan-50 transition-colors hover:bg-cyan-500/10"
+                >
+                  {page.metaTitle}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-2xl glass-card p-6">
+            <h3 className="mb-4 text-xl font-semibold text-white">Latest articles</h3>
+            <div className="space-y-3">
+              {blogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="flex items-center justify-between gap-4 rounded-xl border border-cyan-300/20 bg-slate-900/60 p-4 text-sm text-cyan-50 transition-colors hover:bg-cyan-500/10"
+                >
+                  <span>{post.title}</span>
+                  <ArrowRight size={15} />
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-20 md:px-10">
         <div className="grid gap-8 rounded-3xl glass-card p-8 md:grid-cols-[1fr_auto] md:items-center md:p-10">
           <div>
             <h2 className="text-3xl font-semibold text-white md:text-4xl">Download DriveWatch for Windows</h2>
             <p className="mt-3 text-cyan-100/75">
-              Windows installer package with secure checksum delivery and smooth setup.
+              Windows installer package for SSD health monitoring, fan RPM
+              monitoring, CPU monitoring, GPU temperature tracking, disk health
+              analytics, smart alerts, and smooth setup.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-xs text-cyan-100/85">
-              <span className="rounded-full border border-cyan-300/35 px-3 py-1">Version 1.2.3</span>
+              <span className="rounded-full border border-cyan-300/35 px-3 py-1">Version {softwareVersion}</span>
               <span className="rounded-full border border-cyan-300/35 px-3 py-1">File Size 98.3 MB</span>
               <span className="rounded-full border border-cyan-300/35 px-3 py-1">Virus-Free Badge</span>
               <span className="rounded-full border border-cyan-300/35 px-3 py-1">Secure Download</span>
             </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {downloadDetails.map((detail) => (
+                <div key={detail} className="rounded-xl border border-cyan-300/20 bg-slate-900/55 p-3">
+                  <p className="text-xs text-cyan-50/80">{detail}</p>
+                </div>
+              ))}
+            </div>
             <p className="mt-4 text-sm text-cyan-50/70">
               Install guide: Download EXE → Run setup → Launch DriveWatch → Enable notifications.
             </p>
+            <Link href="/download" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 hover:text-white">
+              View compatibility, FAQ, and installation steps <ArrowRight size={15} />
+            </Link>
           </div>
           <MagneticButton
-            href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+            href={downloadLinks.windows}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -517,7 +714,7 @@ export default function Home() {
               Native macOS package with secure signing, optimized performance, and fast setup.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-xs text-cyan-100/85">
-              <span className="rounded-full border border-cyan-300/35 px-3 py-1">Version 1.2.3</span>
+              <span className="rounded-full border border-cyan-300/35 px-3 py-1">Version {softwareVersion}</span>
               <span className="rounded-full border border-cyan-300/35 px-3 py-1">File Size 116 MB</span>
               <span className="rounded-full border border-cyan-300/35 px-3 py-1">Apple Silicon Ready</span>
               <span className="rounded-full border border-cyan-300/35 px-3 py-1">Notarized Build</span>
@@ -527,7 +724,7 @@ export default function Home() {
             </p>
           </div>
           <MagneticButton
-            href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg"
+            href={downloadLinks.mac}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -539,24 +736,22 @@ export default function Home() {
       <section className="mx-auto max-w-5xl px-6 py-16 md:px-10">
         <h2 className="mb-8 text-3xl font-semibold text-white md:text-4xl">FAQ</h2>
         <div className="space-y-3">
-          {faqItems.map((question, idx) => (
-            <div key={question} className="rounded-2xl border border-cyan-300/20 bg-slate-900/60">
+          {faqItems.map((item, idx) => (
+            <div key={item.question} className="rounded-2xl border border-cyan-300/20 bg-slate-900/60">
               <button
+                type="button"
                 onClick={() => setActiveFaq(activeFaq === idx ? -1 : idx)}
+                aria-expanded={activeFaq === idx}
                 className="flex w-full items-center justify-between px-5 py-4 text-left"
               >
-                <span className="font-medium text-cyan-50">{question}</span>
+                <span className="font-medium text-cyan-50">{item.question}</span>
                 <ChevronDown
                   className={`transition-transform ${activeFaq === idx ? "rotate-180" : ""}`}
                   size={18}
                 />
               </button>
               {activeFaq === idx && (
-                <p className="px-5 pb-4 text-sm text-cyan-100/70">
-                  DriveWatch delivers enterprise-grade monitoring and clear insights
-                  for drives, USB devices, and NAS environments with a lightweight,
-                  secure, and update-ready architecture.
-                </p>
+                <p className="px-5 pb-4 text-sm text-cyan-100/70">{item.answer}</p>
               )}
             </div>
           ))}
@@ -566,22 +761,24 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-6 pb-20 pt-12 md:px-10">
         <div className="relative overflow-hidden rounded-3xl border border-cyan-300/25 bg-gradient-to-r from-cyan-500/15 via-slate-900/70 to-violet-500/20 p-10 text-center md:p-16">
           <h2 className="text-3xl font-semibold text-white md:text-5xl">
-            Take full control of your storage
+            Take full control of your PC monitoring
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-cyan-100/75">
-            Professional drive monitoring starts here. Install DriveWatch and unlock
-            real-time intelligence for every device you manage.
+            Professional hardware monitoring starts here. Install DriveWatch
+            and unlock SSD health monitoring, fan RPM monitoring, CPU
+            monitoring, GPU temperature tracking, and real-time intelligence for
+            every device you manage.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <MagneticButton
-              href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
+              href={downloadLinks.windows}
               target="_blank"
               rel="noopener noreferrer"
             >
               Download DriveWatch for Windows
             </MagneticButton>
             <MagneticButton
-              href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg"
+              href={downloadLinks.mac}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -607,18 +804,18 @@ export default function Home() {
           </div>
           <nav className="flex flex-wrap gap-5 text-sm text-cyan-100/80">
             <a href="#features">Features</a>
-            <a
-              href="https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Download
-            </a>
+            <Link href="/ssd-health-monitor">SSD Health</Link>
+            <Link href="/fan-rpm-monitor">Fan RPM</Link>
+            <Link href="/cpu-temperature-monitor">CPU Temps</Link>
+            <Link href="/gpu-temperature-monitor">GPU Temps</Link>
+            <Link href="/system-diagnostics">Diagnostics</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/download">Download</Link>
             <a href="https://www.linkedin.com/in/ap2823" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
           </nav>
-          <div className="text-xs text-cyan-100/60">© {new Date().getFullYear()} DriveWatch. All rights reserved.</div>
+          <div className="text-xs text-cyan-100/60">&copy; {new Date().getFullYear()} DriveWatch. All rights reserved.</div>
         </div>
       </footer>
 
