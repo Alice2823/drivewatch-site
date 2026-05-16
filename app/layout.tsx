@@ -1,5 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
+import { Suspense } from "react";
+import { GoogleAnalyticsPageView } from "./components/GoogleAnalyticsPageView";
 import { JsonLd } from "./components/JsonLd";
 import "./globals.css";
 import {
@@ -9,6 +12,7 @@ import {
   siteName,
   softwareApplicationJsonLd,
 } from "./lib/seo";
+import { GA_MEASUREMENT_ID } from "./lib/analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,6 +83,27 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <JsonLd id="drivewatch-software-application" data={softwareApplicationJsonLd} />
         {children}
+        <Script
+          id="google-tag-manager"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){window.dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
+            `,
+          }}
+        />
+        <Suspense fallback={null}>
+          <GoogleAnalyticsPageView />
+        </Suspense>
       </body>
     </html>
   );
