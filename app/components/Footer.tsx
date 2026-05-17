@@ -97,9 +97,9 @@ export function Footer() {
               <Link href="/system-diagnostics" className="text-sm text-cyan-100/60 hover:text-cyan-300 transition-colors">
                 System Diagnostics
               </Link>
-              <a href="/sitemap.xml" className="text-sm text-cyan-100/60 hover:text-cyan-300 transition-colors">
+              <Link href="/sitemap" className="text-sm text-cyan-100/60 hover:text-cyan-300 transition-colors">
                 Sitemap
-              </a>
+              </Link>
             </nav>
           </div>
 
