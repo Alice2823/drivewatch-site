@@ -906,7 +906,7 @@ export const blogPosts: BlogPost[] = [
       "GPU temperatures matter because they help explain stability, performance, cooling behavior, and long-term hardware comfort.",
   },
   {
-    slug: "how-to-check-hdd-health-in-windows-11",
+    slug: "how-to-check-hdd-health-windows-11",
     title: "How to Check HDD Health in Windows 11",
     description:
       "A complete professional guide to checking HDD health in Windows 11. Learn about hard drive scanning, SMART diagnostics, temperature tracking, and proactive failure detection.",
