@@ -13,7 +13,7 @@ export const metadata: Metadata = createMetadata({
   description:
     "Download DriveWatch for Windows and install professional SSD health monitoring, fan RPM monitoring, CPU monitoring, GPU temperature tracking, disk health analytics, and diagnostics.",
   path: "/download",
-  keywords: ["download DriveWatch", "Windows monitoring software download", "PC monitoring software"],
+  keywords: ["download DriveWatch", "Windows monitoring software download", "PC monitoring software", "HDD health monitor software", "drive scan software"],
 });
 
 const installSteps = [
@@ -27,12 +27,12 @@ const faqs = [
   {
     question: "What does DriveWatch monitor?",
     answer:
-      "DriveWatch monitors SSD health, disk health analytics, USB and NAS activity, CPU and GPU temperature context, fan RPM monitoring context, system diagnostics, and smart alerts.",
+      "DriveWatch acts as an HDD health monitor and SSD monitoring tool. It tracks disk health analytics, USB and NAS activity, CPU and GPU temperature context, fan RPM monitoring context, system diagnostics, and smart alerts.",
   },
   {
     question: "Is DriveWatch built for Windows?",
     answer:
-      "Yes. DriveWatch is positioned as professional Windows monitoring software, with installer downloads and a workflow designed for PC diagnostics.",
+      "Yes. DriveWatch is positioned as professional Windows monitoring software and disk diagnostic tool, with installer downloads and a workflow designed for PC diagnostics and drive health monitoring.",
   },
   {
     question: "Which version is available?",
@@ -107,9 +107,9 @@ export default function DownloadPage() {
       <section className="mx-auto max-w-7xl px-6 py-14 md:px-10">
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            "SSD health monitor and disk health checker",
-            "Fan RPM monitoring with CPU and GPU temperature context",
-            "Windows system diagnostics with hardware analytics",
+            "HDD health monitor and SSD health check",
+            "Drive scan tool with CPU and GPU temperature context",
+            "Windows system diagnostics with disk health software analytics",
           ].map((feature) => (
             <div key={feature} className="rounded-2xl border border-cyan-300/20 bg-slate-900/60 p-5">
               <CheckCircle2 className="mb-4 h-6 w-6 text-cyan-300" />

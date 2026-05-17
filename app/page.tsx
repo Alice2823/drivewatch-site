@@ -29,7 +29,7 @@ const features = [
   {
     title: "Real-Time Drive Monitoring",
     icon: Activity,
-    desc: "Track utilization, speed, SSD health, disk health, and thermals with high-frequency live telemetry.",
+    desc: "Use as an HDD health monitor and SSD monitoring tool to track utilization, speed, and disk health with high-frequency live telemetry.",
   },
   {
     title: "USB Detection",
@@ -44,12 +44,12 @@ const features = [
   {
     title: "Smart Health Analytics",
     icon: ShieldCheck,
-    desc: "Surface proactive SSD health monitoring, disk health analytics, and predictive risk indicators before failure.",
+    desc: "Surface proactive SSD health monitoring, SMART drive monitor analytics, and predictive risk indicators before failure.",
   },
   {
     title: "Recovery Lab",
     icon: Wrench,
-    desc: "Use guided recovery workflows, sector checks, and integrity restoration tools.",
+    desc: "A complete drive scan tool and disk diagnostic tool with guided recovery workflows, sector checks, and integrity restoration.",
   },
   {
     title: "Performance Tracking",
@@ -69,7 +69,7 @@ const features = [
   {
     title: "Multi-Drive Support",
     icon: HardDrive,
-    desc: "Manage multiple internal and external drives from one consolidated control center.",
+    desc: "Manage multiple internal and external drives from one consolidated control center and hard drive checker.",
   },
   {
     title: "Modern Dashboard",
@@ -89,7 +89,7 @@ const features = [
   {
     title: "SSD Health Monitor",
     icon: HardDrive,
-    desc: "Check SSD health, storage temperature, activity spikes, and disk health from a clean monitoring workspace.",
+    desc: "Perform an SSD health check, monitor storage temperature, activity spikes, and disk health from a clean monitoring workspace.",
   },
   {
     title: "Fan RPM Monitoring",
@@ -109,7 +109,7 @@ const features = [
   {
     title: "Disk Health Analytics",
     icon: LineChart,
-    desc: "Turn raw drive activity into readable disk health analytics for internal, external, USB, and NAS storage.",
+    desc: "Turn raw drive activity into readable disk health software analytics for internal, external, USB, and NAS storage.",
   },
 ];
 
@@ -117,7 +117,7 @@ const faqItems = [
   {
     question: "What is DriveWatch?",
     answer:
-      "DriveWatch is professional Windows monitoring software for SSD health monitoring, disk health analytics, fan RPM monitoring context, CPU monitoring, GPU temperature tracking, USB monitoring, NAS visibility, and system diagnostics.",
+      "DriveWatch is professional Windows monitoring software acting as an HDD health monitor, hard drive checker, and SSD monitoring tool. It includes disk health analytics, fan RPM monitoring, CPU and GPU tracking, and system diagnostics.",
   },
   {
     question: "Is DriveWatch free?",
@@ -127,7 +127,7 @@ const faqItems = [
   {
     question: "Does it support NAS monitoring?",
     answer:
-      "Yes. DriveWatch includes NAS monitoring content and workflows for mapped storage, response latency, activity flow, and status visibility.",
+      "Yes. DriveWatch includes NAS monitoring and drive scan tools for mapped storage, response latency, activity flow, and status visibility.",
   },
   {
     question: "Can it monitor USB devices?",
@@ -147,7 +147,7 @@ const faqItems = [
   {
     question: "Is it safe?",
     answer:
-      "DriveWatch uses a secure installer workflow, public release downloads, and clear update messaging for safer installation and maintenance.",
+      "DriveWatch uses a secure installer workflow. As a reliable SMART drive monitor and disk health software, it provides public release downloads and clear update messaging for safer installation.",
   },
   {
     question: "Does it support multiple drives?",
@@ -160,7 +160,7 @@ const seoFeatureSections = [
   {
     title: "SSD Health Monitoring",
     href: "/ssd-health-monitor",
-    desc: "Use DriveWatch as an SSD health monitor and disk health checker for temperature trends, storage activity, smart alerts, and disk health analytics.",
+    desc: "Use DriveWatch as an SSD health monitor and drive health monitor for temperature trends, storage activity, smart alerts, and disk health analytics.",
   },
   {
     title: "Fan RPM Monitoring",
@@ -186,7 +186,7 @@ const seoFeatureSections = [
 
 const downloadDetails = [
   "Compatible with Windows monitoring software workflows",
-  "Includes SSD health monitor and disk health checker coverage",
+  "Includes SSD health monitor, HDD scan capabilities, and disk health checker coverage",
   "Supports fan RPM, CPU, and GPU monitoring context",
   "Designed for hardware analytics, alerts, and system diagnostics",
 ];
@@ -279,7 +279,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="mt-6 max-w-xl text-base text-cyan-50/80 md:text-lg">
-              DriveWatch helps you monitor SSD health, disk health, USB devices,
+              DriveWatch is a professional HDD and SSD health monitoring software for real-time drive scanning, SMART diagnostics, temperature monitoring, and disk health analysis. DriveWatch helps you monitor SSD health, USB devices,
               NAS systems, fan RPM context, CPU temperature, and GPU temperature
               tracking with real-time analytics, smart alerts, recovery tools,
               and automatic updates.

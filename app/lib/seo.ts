@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteUrl = "https://www.drivewatch.site";
 export const siteName = "DriveWatch";
 export const siteDescription =
-  "DriveWatch is professional PC monitoring software for SSD health monitoring, fan RPM monitoring, CPU temperature monitoring, GPU temperature tracking, disk health analytics, and Windows system diagnostics.";
+  "DriveWatch is a professional HDD and SSD health monitoring software for real-time drive scanning, SMART diagnostics, temperature monitoring, and disk health analysis. Includes fan RPM, CPU, and GPU tracking.";
 
 export const downloadLinks = {
   windows:
@@ -31,6 +31,16 @@ export const seoKeywords = [
   "system diagnostics",
   "Windows monitoring software",
   "storage utility",
+  "HDD health monitor",
+  "SSD health check",
+  "drive scan tool",
+  "disk health software",
+  "HDD scan",
+  "SSD monitoring",
+  "SMART drive monitor",
+  "hard drive checker",
+  "disk diagnostic tool",
+  "drive health monitor",
 ];
 
 const ogImage = {
@@ -396,6 +406,356 @@ export const featurePages: FeaturePage[] = [
     ],
     relatedSlugs: ["/ssd-health-monitor", "/fan-rpm-monitor"],
   },
+  {
+    slug: "/hdd-health-monitor",
+    navTitle: "HDD Monitor",
+    metaTitle: "HDD Health Monitor Software | DriveWatch",
+    metaDescription:
+      "Professional HDD health monitor for real-time hard drive tracking, temperature diagnostics, SMART analysis, and early failure detection.",
+    keywords: [
+      "HDD health monitor",
+      "hard drive monitor",
+      "HDD temperature",
+      "hard drive health",
+    ],
+    eyebrow: "HDD health monitor",
+    title: "Advanced HDD health monitor for reliable storage",
+    description:
+      "Use DriveWatch as your primary HDD health monitor to ensure the longevity of your mechanical hard drives through continuous SMART analysis and temperature tracking.",
+    stat: "100%",
+    statLabel: "Disk Visibility",
+    sections: [
+      {
+        title: "Proactive Features",
+        description:
+          "Our HDD health monitor comes packed with features designed specifically to monitor spinning disks, tracking read/write performance and sector health.",
+      },
+      {
+        title: "Real-Time Monitoring",
+        description:
+          "Continuous monitoring of your hard drives to catch latency spikes, unusual noises, and activity anomalies before they lead to data loss.",
+      },
+      {
+        title: "Deep Diagnostics",
+        description:
+          "Run thorough diagnostics on your HDD to identify weak sectors, bad blocks, and mechanical issues using our deep scanning technology.",
+      },
+      {
+        title: "Temperature Tracking",
+        description:
+          "Mechanical drives are sensitive to heat. Our HDD health monitor provides precise temperature tracking to prevent thermal degradation.",
+      },
+      {
+        title: "SMART Analysis",
+        description:
+          "Read and interpret raw SMART attributes directly from the drive's firmware to get a true picture of your hard drive's operational status.",
+      },
+      {
+        title: "Failure Detection",
+        description:
+          "Early failure detection alerts you to critical changes in your HDD's behavior, giving you time to back up data before a crash occurs.",
+      },
+    ],
+    benefits: [
+      "Extend the lifespan of your mechanical hard drives",
+      "Get alerted to high HDD temperatures instantly",
+      "Understand complex SMART data with ease",
+      "Prevent catastrophic data loss through early warnings",
+    ],
+    faqs: [
+      {
+        question: "Why do I need an HDD health monitor?",
+        answer:
+          "An HDD health monitor tracks mechanical wear and tear, temperature changes, and SMART errors, allowing you to replace drives before they fail.",
+      },
+      {
+        question: "Does this work with external hard drives?",
+        answer:
+          "Yes, DriveWatch can monitor external USB HDDs as long as the enclosure passes SMART data through to the operating system.",
+      },
+    ],
+    relatedSlugs: ["/ssd-health-check", "/smart-drive-monitor"],
+  },
+  {
+    slug: "/ssd-health-check",
+    navTitle: "SSD Check",
+    metaTitle: "SSD Health Check Tool | DriveWatch",
+    metaDescription:
+      "Run a comprehensive SSD health check to analyze NAND wear, TBW limits, temperature tracking, and SMART attributes with DriveWatch.",
+    keywords: [
+      "SSD health check",
+      "SSD health checker",
+      "SSD diagnostics",
+      "solid state drive health",
+    ],
+    eyebrow: "SSD health check",
+    title: "Complete SSD health check for optimal performance",
+    description:
+      "Perform a detailed SSD health check to verify remaining lifespan, total bytes written, thermal trends, and internal wear leveling status.",
+    stat: "99%",
+    statLabel: "Wear Accuracy",
+    sections: [
+      {
+        title: "Advanced Features",
+        description:
+          "Our SSD health check utility provides advanced features to monitor flash memory degradation and controller health in real-time.",
+      },
+      {
+        title: "Constant Monitoring",
+        description:
+          "Background monitoring keeps an eye on your SSD's vital signs without impacting your PC's performance or gaming frame rates.",
+      },
+      {
+        title: "Flash Diagnostics",
+        description:
+          "Detailed diagnostics test your SSD's read and write speeds, identifying any bottlenecks or degraded memory cells.",
+      },
+      {
+        title: "Temperature Tracking",
+        description:
+          "NVMe SSDs can run extremely hot under load. Our temperature tracking ensures your drives never reach critical thermal throttling limits.",
+      },
+      {
+        title: "SMART Analysis",
+        description:
+          "Evaluate SMART attributes specific to solid-state drives, such as available spare blocks and media wearout indicators.",
+      },
+      {
+        title: "Failure Detection",
+        description:
+          "Predictive failure detection warns you when your SSD is approaching its maximum TBW limit or showing signs of imminent read-only lock.",
+      },
+    ],
+    benefits: [
+      "Monitor SSD lifespan and remaining TBW",
+      "Prevent NVMe thermal throttling",
+      "Identify degraded storage performance",
+      "Secure your data before sudden SSD failure",
+    ],
+    faqs: [
+      {
+        question: "How often should I run an SSD health check?",
+        answer:
+          "We recommend running an SSD health check monthly, or keeping DriveWatch running in the background for continuous protection.",
+      },
+      {
+        question: "Does checking SSD health damage the drive?",
+        answer:
+          "No, an SSD health check reads SMART data passively and does not consume any write cycles (TBW).",
+      },
+    ],
+    relatedSlugs: ["/hdd-health-monitor", "/drive-scan-tool"],
+  },
+  {
+    slug: "/drive-scan-tool",
+    navTitle: "Drive Scan",
+    metaTitle: "Professional Drive Scan Tool | DriveWatch",
+    metaDescription:
+      "Utilize our drive scan tool to identify storage errors, monitor disk temperatures, run diagnostics, and detect failures across HDDs and SSDs.",
+    keywords: [
+      "drive scan tool",
+      "drive scanner",
+      "disk scanner",
+      "hard drive scan",
+    ],
+    eyebrow: "Drive scan tool",
+    title: "Powerful drive scan tool for system stability",
+    description:
+      "Deploy our drive scan tool to uncover hidden file system errors, hardware faults, and latency issues before they corrupt your operating system.",
+    stat: "3x",
+    statLabel: "Faster Scanning",
+    sections: [
+      {
+        title: "Scan Features",
+        description:
+          "This drive scan tool includes fast-pass algorithms, deep sector scanning, and continuous surface analysis to map storage health.",
+      },
+      {
+        title: "Background Monitoring",
+        description:
+          "Drive scanning can happen silently in the background, offering uninterrupted monitoring while you work or play.",
+      },
+      {
+        title: "System Diagnostics",
+        description:
+          "Connect drive scan results with broader system diagnostics to understand how storage bottlenecks affect your CPU and RAM.",
+      },
+      {
+        title: "Temperature Tracking",
+        description:
+          "Intensive scanning can raise disk heat. Our integrated temperature tracking ensures scans pause if hardware gets too hot.",
+      },
+      {
+        title: "SMART Analysis",
+        description:
+          "Scan results are correlated directly with SMART analysis to confirm if bad sectors are physical hardware defects or software errors.",
+      },
+      {
+        title: "Failure Detection",
+        description:
+          "The drive scan tool highlights deteriorating sectors, providing early failure detection before the drive mechanism physically breaks.",
+      },
+    ],
+    benefits: [
+      "Discover bad sectors before they ruin files",
+      "Scan internal, external, and network drives",
+      "Map out disk surface integrity visually",
+      "Prevent catastrophic OS crashes",
+    ],
+    faqs: [
+      {
+        question: "How long does the drive scan tool take?",
+        answer:
+          "A quick scan takes seconds, while a deep surface scan depends on the size and speed of the drive, often taking a few hours for large HDDs.",
+      },
+      {
+        question: "Can it fix bad sectors?",
+        answer:
+          "The tool can trigger the drive's firmware to reallocate bad sectors, preventing the OS from writing data to failing areas.",
+      },
+    ],
+    relatedSlugs: ["/disk-health-checker", "/smart-drive-monitor"],
+  },
+  {
+    slug: "/disk-health-checker",
+    navTitle: "Disk Checker",
+    metaTitle: "Disk Health Checker Software | DriveWatch",
+    metaDescription:
+      "The ultimate disk health checker to monitor hard drives, solid-state drives, and NVMe storage through diagnostics and SMART tracking.",
+    keywords: [
+      "disk health checker",
+      "check disk health",
+      "disk monitoring",
+      "hard disk health",
+    ],
+    eyebrow: "Disk health checker",
+    title: "Comprehensive disk health checker for your PC",
+    description:
+      "A complete disk health checker providing actionable insights into drive status, performance metrics, and SMART warnings.",
+    stat: "24/7",
+    statLabel: "Disk Protection",
+    sections: [
+      {
+        title: "Checker Features",
+        description:
+          "A unified disk health checker that brings together multi-drive support, real-time alerts, and historical performance graphing.",
+      },
+      {
+        title: "Active Monitoring",
+        description:
+          "The checker provides active monitoring of queue depths, IOPS, and throughput to ensure your disks are performing optimally.",
+      },
+      {
+        title: "Holistic Diagnostics",
+        description:
+          "View comprehensive diagnostics that cover every aspect of disk health, from mechanical spin-up times to electronic wear.",
+      },
+      {
+        title: "Temperature Tracking",
+        description:
+          "Keep tabs on disk climate with real-time temperature tracking, crucial for maintaining optimal operating conditions.",
+      },
+      {
+        title: "SMART Analysis",
+        description:
+          "Our disk health checker demystifies SMART analysis, translating technical hex codes into plain English recommendations.",
+      },
+      {
+        title: "Failure Detection",
+        description:
+          "Stay ahead of data disasters with algorithms trained for failure detection, spotting the subtle signs of a dying disk.",
+      },
+    ],
+    benefits: [
+      "Get a clear health percentage for every disk",
+      "Understand your PC's storage performance bottlenecks",
+      "Receive instant alerts for disk warnings",
+      "Works seamlessly across HDD and SSD architectures",
+    ],
+    faqs: [
+      {
+        question: "Is this disk health checker compatible with Windows 11?",
+        answer:
+          "Yes, it is fully optimized for modern Windows environments, including native support for NVMe storage protocols.",
+      },
+      {
+        question: "Can it check RAID arrays?",
+        answer:
+          "Depending on the RAID controller, DriveWatch can pass through to check the health of individual physical disks within the array.",
+      },
+    ],
+    relatedSlugs: ["/hdd-health-monitor", "/ssd-health-check"],
+  },
+  {
+    slug: "/smart-drive-monitor",
+    navTitle: "SMART Monitor",
+    metaTitle: "SMART Drive Monitor & Analyzer | DriveWatch",
+    metaDescription:
+      "Analyze Self-Monitoring, Analysis, and Reporting Technology (S.M.A.R.T.) data with our advanced SMART drive monitor and failure detection system.",
+    keywords: [
+      "SMART drive monitor",
+      "SMART disk monitor",
+      "SMART drive analysis",
+      "SMART HDD monitor",
+    ],
+    eyebrow: "SMART drive monitor",
+    title: "Advanced SMART drive monitor and data analyzer",
+    description:
+      "Tap directly into your storage's built-in self-reporting tools with our SMART drive monitor to catch hardware faults before they manifest as data loss.",
+    stat: "100+",
+    statLabel: "Attributes Tracked",
+    sections: [
+      {
+        title: "SMART Features",
+        description:
+          "The SMART drive monitor features native support for hundreds of vendor-specific S.M.A.R.T. attributes across Samsung, Western Digital, Seagate, and more.",
+      },
+      {
+        title: "Sensor Monitoring",
+        description:
+          "Continuous background monitoring polls SMART sensors safely without waking spun-down drives or interrupting workloads.",
+      },
+      {
+        title: "Attribute Diagnostics",
+        description:
+          "Detailed diagnostics explain exactly what each SMART attribute means, from reallocated sector counts to power-on hours.",
+      },
+      {
+        title: "Temperature Tracking",
+        description:
+          "SMART temperature tracking pulls data directly from the thermal sensors embedded on the drive's PCB and flash controller.",
+      },
+      {
+        title: "SMART Analysis",
+        description:
+          "Our proprietary SMART analysis engine looks at attribute degradation over time rather than just static thresholds.",
+      },
+      {
+        title: "Failure Detection",
+        description:
+          "By analyzing SMART history, our failure detection system can accurately predict when a drive will reach the end of its usable life.",
+      },
+    ],
+    benefits: [
+      "Decode cryptic SMART data instantly",
+      "Predict hardware failure with high accuracy",
+      "Track drive degradation over months or years",
+      "Support for all major SSD and HDD manufacturers",
+    ],
+    faqs: [
+      {
+        question: "What is SMART data?",
+        answer:
+          "S.M.A.R.T. stands for Self-Monitoring, Analysis, and Reporting Technology. It is an internal monitoring system included in computer hard disk drives and solid-state drives.",
+      },
+      {
+        question: "Does the SMART drive monitor work via USB?",
+        answer:
+          "Yes, DriveWatch supports SMART passthrough for the vast majority of USB enclosures and docking stations.",
+      },
+    ],
+    relatedSlugs: ["/drive-scan-tool", "/disk-health-checker"],
+  }
 ];
 
 export function getFeaturePage(slug: string) {

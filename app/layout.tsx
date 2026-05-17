@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   ...createMetadata({
-    title: "DriveWatch | SSD Health Monitor, Fan RPM & PC Diagnostics",
+    title: "DriveWatch | HDD & SSD Health Monitor, Drive Scan Tool & PC Diagnostics",
     description: siteDescription,
     path: "/",
     keywords: seoKeywords,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   publisher: siteName,
   referrer: "origin-when-cross-origin",
   title: {
-    default: "DriveWatch | SSD Health Monitor, Fan RPM & PC Diagnostics",
+    default: "DriveWatch | HDD & SSD Health Monitor, Drive Scan Tool & PC Diagnostics",
     template: "%s | DriveWatch",
   },
   robots: {
