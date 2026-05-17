@@ -487,7 +487,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="glass-card relative overflow-hidden rounded-3xl p-8 md:p-10"
         >
-          <div className="absolute right-10 top-10 rounded-full border border-cyan-300/30 bg-cyan-400/15 px-3 py-1 text-xs text-cyan-100">
+          <div className="mb-4 inline-flex md:absolute md:right-10 md:top-10 md:mb-0 rounded-full border border-cyan-300/30 bg-cyan-400/15 px-3 py-1 text-xs text-cyan-100">
             NEW UPDATE AVAILABLE
           </div>
           <h2 className="max-w-2xl text-3xl font-semibold text-white md:text-4xl">

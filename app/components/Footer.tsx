@@ -18,7 +18,7 @@ export function Footer() {
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3" aria-label="DriveWatch home">
               <Image
-                src="/images/drivewatch-logo.png"
+                src="/favicon.png"
                 alt="DriveWatch logo"
                 width={48}
                 height={48}

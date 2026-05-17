@@ -49,7 +49,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-3 shrink-0 group">
           <div className="relative">
             <Image
-              src="/images/drivewatch-logo.png"
+              src="/favicon.png"
               alt="DriveWatch logo"
               width={42}
               height={42}

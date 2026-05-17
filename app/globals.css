@@ -25,6 +25,7 @@ body {
     radial-gradient(circle at 15% 10%, rgba(var(--glow-cyan), 0.16), transparent 32%),
     radial-gradient(circle at 90% 15%, rgba(var(--glow-purple), 0.15), transparent 38%),
     linear-gradient(140deg, #03050a 0%, #070d1f 45%, #020409 100%);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
