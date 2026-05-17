@@ -69,11 +69,28 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         </h1>
         <p className="mt-6 text-lg leading-8 text-cyan-50/80">{post.description}</p>
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-12 space-y-12">
           {post.sections.map((section) => (
-            <section key={section.title}>
-              <h2 className="mb-3 text-2xl font-semibold text-white">{section.title}</h2>
-              <p className="text-base leading-8 text-cyan-100/75">{section.body}</p>
+            <section key={section.title} className="prose prose-invert max-w-none">
+              <h2 className="mb-4 text-2xl font-semibold text-white tracking-tight border-b border-cyan-500/10 pb-2">
+                {section.title}
+              </h2>
+              <div className="space-y-6 text-base leading-8 text-cyan-100/75">
+                {section.body.split("\n\n").map((para, i) => {
+                  const trimmed = para.trim();
+                  if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+                    const items = trimmed.split("\n").map(li => li.replace(/^[-*]\s+/, "").trim());
+                    return (
+                      <ul key={i} className="list-disc pl-6 space-y-2.5 my-4 text-cyan-100/80">
+                        {items.map((item, idx) => (
+                          <li key={idx} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />
+                        ))}
+                      </ul>
+                    );
+                  }
+                  return <p key={i} dangerouslySetInnerHTML={{ __html: trimmed.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") }} />;
+                })}
+              </div>
             </section>
           ))}
         </div>
