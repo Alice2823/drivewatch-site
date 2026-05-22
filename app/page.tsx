@@ -345,11 +345,17 @@ export default function Home() {
         <h2 className="mb-3 text-3xl font-semibold text-white md:text-4xl">
           Purpose-built features for serious PC monitoring
         </h2>
-        <p className="mb-10 max-w-3xl text-cyan-50/70">
+        <p className="mb-6 max-w-3xl text-cyan-50/70">
           Every panel, signal, and alert is tuned for SSD health monitoring,
           disk health analytics, fan RPM context, CPU monitoring, GPU monitoring,
           and high confidence diagnostic decisions.
         </p>
+        <Link
+          href="/features"
+          className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 hover:text-white"
+        >
+          View all features <ArrowRight size={15} />
+        </Link>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <motion.article

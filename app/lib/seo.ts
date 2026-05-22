@@ -755,7 +755,65 @@ export const featurePages: FeaturePage[] = [
       },
     ],
     relatedSlugs: ["/drive-scan-tool", "/disk-health-checker"],
-  }
+  },
+  {
+    slug: "/features/surface-scan",
+    navTitle: "Surface Scan",
+    metaTitle: "DriveWatch Surface Scan - Detect Bad & Weak Disk Sectors",
+    metaDescription: "Perform deep sector-by-sector surface analysis to detect damaged, weak, slow, or unstable disk sectors with DriveWatch's advanced scanning technology.",
+    keywords: ["surface scan", "sector scan", "bad sector detection", "disk surface analysis", "weak sectors", "sector surface scan"],
+    eyebrow: "Sector surface scan",
+    title: "Deep sector-by-sector disk analysis for detecting damaged, weak, unstable, or slow sectors",
+    description: "DriveWatch performs low-level surface scanning to map every sector on your drive, identifying damaged, weak, slow, and unstable areas before they cause data loss.",
+    stat: "100%",
+    statLabel: "Sector Coverage",
+    sections: [
+      { title: "What is Surface Scan", description: "A low-level sector-by-sector analysis that reads every addressable block on your drive to detect physical and logical damage." },
+      { title: "How DriveWatch Detects Bad Sectors", description: "Advanced read-verify algorithms test each sector's response time and data integrity to classify sector health status." },
+      { title: "SSD vs HDD Sector Analysis", description: "Different scanning strategies optimized for flash memory cells versus magnetic platters ensure accurate results on any drive type." },
+    ],
+    benefits: [
+      "Detect damaged sectors before data loss occurs",
+      "Identify slow and unstable sectors affecting performance",
+      "Map entire drive surface with sector-level granularity",
+      "Distinguish between recoverable and permanently failed sectors",
+    ],
+    faqs: [
+      { question: "How long does a surface scan take?", answer: "Scan duration depends on drive size and speed. A 1TB HDD typically takes 2-4 hours for a full surface scan, while NVMe SSDs complete in minutes." },
+      { question: "Will a surface scan damage my drive?", answer: "No. Surface scanning performs read-only operations that do not write data or consume SSD write cycles." },
+      { question: "Can I use my computer during a scan?", answer: "Yes. DriveWatch runs scans at low priority so your system remains responsive during the analysis." },
+    ],
+    relatedSlugs: ["/features/sector-repair", "/drive-scan-tool"],
+  },
+  {
+    slug: "/features/sector-repair",
+    navTitle: "Sector Repair",
+    metaTitle: "DriveWatch Sector Repair - Stabilize & Recover Disk Sectors",
+    metaDescription: "Advanced sector stabilization and recovery system for weak and unstable drive sectors using DriveWatch's repair algorithms.",
+    keywords: ["sector repair", "sector stabilization", "disk recovery", "bad sector repair", "drive repair", "sector recovery"],
+    eyebrow: "Sector repair & stabilization",
+    title: "Advanced sector stabilization and recovery for weak and unstable drive sectors",
+    description: "DriveWatch uses intelligent repair algorithms to stabilize weak sectors, recover readable data from failing areas, and remap damaged blocks to preserve drive integrity.",
+    stat: "95%",
+    statLabel: "Recovery Rate",
+    sections: [
+      { title: "How Sector Repair Works", description: "DriveWatch reads weak sectors multiple times with varying parameters, reconstructs data using ECC, and triggers firmware-level reallocation." },
+      { title: "Stabilization Technology", description: "Proprietary algorithms refresh magnetic charge on HDD sectors and optimize flash cell voltage thresholds on SSDs to extend sector life." },
+      { title: "Recovery Process", description: "A three-phase approach: identify failing sectors, attempt data recovery, then remap to spare areas to prevent future access failures." },
+    ],
+    benefits: [
+      "Recover data from failing sectors before permanent loss",
+      "Stabilize weak sectors to extend drive lifespan",
+      "Automatic bad sector reallocation via firmware commands",
+      "Integrated SMART health monitoring during repair",
+    ],
+    faqs: [
+      { question: "Can sector repair fix a failing drive?", answer: "Sector repair can stabilize and recover weak sectors, but it cannot reverse physical damage. It is most effective as a preventive measure on drives showing early warning signs." },
+      { question: "Is sector repair safe for SSDs?", answer: "Yes. DriveWatch uses SSD-appropriate techniques that work with the drive's wear leveling and garbage collection rather than against them." },
+      { question: "How long does sector repair take?", answer: "Repair time depends on the number of affected sectors. A drive with a few dozen weak sectors typically completes in 15-30 minutes." },
+    ],
+    relatedSlugs: ["/features/surface-scan", "/smart-drive-monitor"],
+  },
 ];
 
 export function getFeaturePage(slug: string) {

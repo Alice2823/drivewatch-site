@@ -3,6 +3,7 @@ import { featurePages } from "../lib/seo";
 import Link from "next/link";
 import { Activity, ArrowRight, CheckCircle2, Gauge, ShieldCheck } from "lucide-react";
 import { DownloadCta } from "./DownloadCta";
+import { FeatureHeroAnimation } from "./FeatureHeroAnimation";
 
 type SeoFeaturePageProps = {
   page: FeaturePage;
@@ -15,36 +16,43 @@ export function SeoFeaturePage({ page }: SeoFeaturePageProps) {
 
   return (
     <>
-      {/* Premium Centered Hero - Removed Showcase Image & Stats Card */}
-      <section className="relative mx-auto max-w-4xl px-6 pb-20 pt-20 md:px-10 text-center flex flex-col items-center">
+      {/* Premium Split Hero with Animation */}
+      <section className="relative mx-auto max-w-7xl px-6 pb-20 pt-20 md:px-10">
         {/* Glow effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none" />
 
-        <span className="mb-6 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-4 py-1.5 text-xs tracking-[0.18em] text-cyan-200 font-semibold uppercase">
-          {page.eyebrow}
-        </span>
-        
-        <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white md:text-6xl max-w-3xl bg-clip-text">
-          {page.title}
-        </h1>
-        
-        <p className="mt-6 max-w-2xl text-base text-cyan-100/80 md:text-lg leading-relaxed">
-          {page.description}
-        </p>
+        <div className="relative z-10 flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
+          {/* Text content - left side */}
+          <div className="flex-1 text-center lg:text-left">
+            <span className="mb-6 inline-flex rounded-full border border-cyan-300/30 bg-cyan-500/10 px-4 py-1.5 text-xs tracking-[0.18em] text-cyan-200 font-semibold uppercase">
+              {page.eyebrow}
+            </span>
+            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white md:text-5xl lg:text-6xl max-w-3xl">
+              {page.title}
+            </h1>
+            <p className="mt-6 max-w-xl text-base text-cyan-100/80 md:text-lg leading-relaxed">
+              {page.description}
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
+              <Link
+                href="/download"
+                className="neon-outline inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-violet-500 px-7 py-3.5 text-sm font-semibold text-slate-950 transition-all duration-300 hover:brightness-110 hover:scale-105 active:scale-95"
+              >
+                Download DriveWatch <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/blog"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/50 bg-cyan-500/10 px-7 py-3.5 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:bg-cyan-400/20 active:scale-95"
+              >
+                Read Guides
+              </Link>
+            </div>
+          </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4 z-10">
-          <Link
-            href="/download"
-            className="neon-outline inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-400 via-sky-400 to-violet-500 px-7 py-3.5 text-sm font-semibold text-slate-950 transition-all duration-300 hover:brightness-110 hover:scale-105 active:scale-95"
-          >
-            Download DriveWatch <ArrowRight size={16} />
-          </Link>
-          <Link
-            href="/blog"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-cyan-300/50 bg-cyan-500/10 px-7 py-3.5 text-sm font-semibold text-cyan-100 transition-all duration-300 hover:bg-cyan-400/20 active:scale-95"
-          >
-            Read Guides
-          </Link>
+          {/* Animation - right side */}
+          <div className="flex-shrink-0">
+            <FeatureHeroAnimation slug={page.slug} />
+          </div>
         </div>
       </section>
 

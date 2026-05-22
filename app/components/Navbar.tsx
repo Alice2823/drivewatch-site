@@ -42,9 +42,10 @@ export function Navbar() {
   };
 
   const handleDropdownClick = (e: React.MouseEvent) => {
-    // Enable full tap/click support for touch screens
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setDropdownOpen((prev) => !prev);
+    // On desktop, clicking the Features link navigates to /features
+    // The dropdown is controlled by hover (mouseEnter/mouseLeave)
+    // Close dropdown when navigating away
+    setDropdownOpen(false);
   };
 
   return (
@@ -88,10 +89,11 @@ export function Navbar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <button
+              <Link
+                href="/features"
                 onClick={handleDropdownClick}
                 className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-cyan-500/10 flex items-center gap-1.5 focus:outline-none ${
-                  pathname === "/#features" || featurePages.some(p => pathname === p.slug)
+                  pathname === "/features" || featurePages.some(p => pathname === p.slug)
                     ? "text-cyan-300"
                     : "text-cyan-100/70 hover:text-white"
                 }`}
@@ -103,7 +105,7 @@ export function Navbar() {
                     dropdownOpen ? "rotate-180 text-cyan-300" : "text-cyan-100/50"
                   }`}
                 />
-              </button>
+              </Link>
 
               <AnimatePresence>
                 {dropdownOpen && (
@@ -115,6 +117,21 @@ export function Navbar() {
                     className="absolute right-0 mt-2 w-[480px] rounded-2xl border border-cyan-500/20 bg-slate-950/95 backdrop-blur-xl p-4 shadow-[0_10px_40px_rgba(0,0,0,0.6)] z-[110]"
                   >
                     <div className="grid grid-cols-2 gap-2">
+                      {/* All Features overview link */}
+                      <Link
+                        href="/features"
+                        className={`flex flex-col p-3 rounded-xl transition-all duration-200 hover:bg-cyan-500/10 col-span-2 border border-cyan-500/20 bg-cyan-500/5 ${
+                          pathname === "/features" ? "border-cyan-400/50" : ""
+                        }`}
+                      >
+                        <span className="text-sm font-bold text-cyan-300">
+                          All Features Overview
+                        </span>
+                        <span className="text-[11px] text-cyan-100/60 mt-0.5">
+                          Browse all DriveWatch capabilities
+                        </span>
+                      </Link>
+
                       {featurePages.map((page) => {
                         const isActive = pathname === page.slug;
                         return (
@@ -264,6 +281,19 @@ export function Navbar() {
                         transition={{ duration: 0.12, ease: "easeOut" }}
                         className="pl-4 pr-1 flex flex-col gap-1.5 border-l border-cyan-500/10 ml-6 mt-1.5"
                       >
+                        {/* All Features overview link */}
+                        <Link
+                          href="/features"
+                          className={`flex items-center justify-between p-2.5 rounded-xl transition-all duration-150 ${
+                            pathname === "/features"
+                              ? "bg-cyan-500/10 text-cyan-300"
+                              : "text-cyan-100/60 hover:bg-slate-900 hover:text-white"
+                          }`}
+                        >
+                          <span className="text-base font-bold text-cyan-300">All Features</span>
+                          {pathname === "/features" && <div className="w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
+                        </Link>
+
                         {featurePages.map((page) => {
                           const isActive = pathname === page.slug;
                           return (
