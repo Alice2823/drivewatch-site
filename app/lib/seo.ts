@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://www.drivewatch.site";
+export const siteUrl = "https://drivewatch.site";
 export const siteName = "DriveWatch";
 export const siteDescription =
   "DriveWatch is a professional HDD and SSD health monitoring software for real-time drive scanning, SMART diagnostics, temperature monitoring, and disk health analysis. Includes fan RPM, CPU, and GPU tracking.";

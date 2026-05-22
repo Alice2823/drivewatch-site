@@ -16,11 +16,11 @@ const sectorRepairJsonLd = {
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Windows",
   description: "Advanced sector stabilization and recovery system for weak and unstable drive sectors.",
-  url: "https://www.drivewatch.site/features/sector-repair",
+  url: "https://drivewatch.site/features/sector-repair",
   publisher: {
     "@type": "Organization",
     name: "DriveWatch",
-    url: "https://www.drivewatch.site",
+    url: "https://drivewatch.site",
   },
   offers: {
     "@type": "Offer",

@@ -48,7 +48,7 @@ const featuresJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "DriveWatch",
-    url: "https://www.drivewatch.site",
+    url: "https://drivewatch.site",
   },
 };
 

@@ -16,11 +16,11 @@ const surfaceScanJsonLd = {
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "Windows",
   description: "Perform deep sector-by-sector surface analysis to detect damaged, weak, slow, or unstable disk sectors.",
-  url: "https://www.drivewatch.site/features/surface-scan",
+  url: "https://drivewatch.site/features/surface-scan",
   publisher: {
     "@type": "Organization",
     name: "DriveWatch",
-    url: "https://www.drivewatch.site",
+    url: "https://drivewatch.site",
   },
   offers: {
     "@type": "Offer",
