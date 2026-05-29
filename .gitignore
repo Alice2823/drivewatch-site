@@ -42,4 +42,5 @@ next-env.d.ts
 
 # installers
 /public/downloads/*.exe
+!/public/downloads/ThermaWatch_0.1.1_x64-setup.exe
 /public/downloads/*.dmg
