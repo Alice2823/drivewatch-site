@@ -10,6 +10,7 @@ export const downloadLinks = {
     "https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch-Setup.exe",
   mac:
     "https://github.com/Alice2823/drivewatch-site/releases/latest/download/DriveWatch.dmg",
+  thermawatch: "/downloads/ThermaWatch_0.1.1_x64-setup.exe",
 };
 
 export const softwareVersion = "1.2.3";

@@ -94,6 +94,9 @@ export function Footer() {
               <Link href="/download" className="text-sm text-cyan-100/60 hover:text-cyan-300 transition-colors">
                 Download Center
               </Link>
+              <Link href="/thermawatch" className="text-sm text-cyan-100/60 hover:text-cyan-300 transition-colors font-semibold text-cyan-300">
+                ThermaWatch App
+              </Link>
               <Link href="/system-diagnostics" className="text-sm text-cyan-100/60 hover:text-cyan-300 transition-colors">
                 System Diagnostics
               </Link>

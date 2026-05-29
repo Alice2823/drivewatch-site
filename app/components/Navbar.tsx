@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { featurePages, downloadLinks } from "../lib/seo";
+import { featurePages } from "../lib/seo";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,8 @@ export function Navbar() {
 
   // Close mobile menu on route change instantly
   useEffect(() => {
-    setIsOpen(false);
+    const id = window.setTimeout(() => setIsOpen(false), 0);
+    return () => window.clearTimeout(id);
   }, [pathname]);
 
   const handleMouseEnter = () => {
@@ -41,7 +42,7 @@ export function Navbar() {
     }, 120); // Snappy 120ms buffer to prevent accidental mouse-slip closures
   };
 
-  const handleDropdownClick = (e: React.MouseEvent) => {
+  const handleDropdownClick = () => {
     // On desktop, clicking the Features link navigates to /features
     // The dropdown is controlled by hover (mouseEnter/mouseLeave)
     // Close dropdown when navigating away
@@ -132,6 +133,26 @@ export function Navbar() {
                         </span>
                       </Link>
 
+                      {/* ThermaWatch product link */}
+                      <Link
+                        href="/thermawatch"
+                        className={`flex flex-col p-3 rounded-xl transition-all duration-200 hover:bg-cyan-500/10 col-span-2 border border-cyan-500/25 bg-gradient-to-r from-cyan-500/10 via-slate-950 to-violet-500/10 relative overflow-hidden group/tw ${
+                          pathname === "/thermawatch" ? "border-cyan-400/50" : ""
+                        }`}
+                      >
+                        <div className="absolute top-0 right-3 bottom-0 flex items-center">
+                          <span className="rounded-full bg-cyan-400/20 px-2 py-0.5 text-[9px] font-bold text-cyan-300 uppercase tracking-wider">
+                            New Product
+                          </span>
+                        </div>
+                        <span className="text-sm font-extrabold text-white group-hover/tw:text-cyan-300 transition-colors">
+                          ThermaWatch App
+                        </span>
+                        <span className="text-[11px] text-cyan-100/60 mt-0.5">
+                          Advanced Real-Time PC Hardware & Thermals Monitor
+                        </span>
+                      </Link>
+
                       {featurePages.map((page) => {
                         const isActive = pathname === page.slug;
                         return (
@@ -188,6 +209,17 @@ export function Navbar() {
                 )}
               </AnimatePresence>
             </div>
+
+            <Link
+              href="/thermawatch"
+              className={`relative px-3 py-2 text-sm font-medium transition-all duration-200 rounded-lg hover:bg-cyan-500/10 focus:outline-none ${
+                pathname === "/thermawatch"
+                  ? "text-cyan-300"
+                  : "text-cyan-100/70 hover:text-white"
+              }`}
+            >
+              ThermaWatch
+            </Link>
 
             {/* CTA Pill Download Button */}
             <Link
@@ -257,6 +289,18 @@ export function Navbar() {
               </div>
 
               <div className="flex flex-col gap-2 overflow-y-auto flex-grow pr-2">
+                <Link
+                  href="/thermawatch"
+                  className={`flex items-center justify-between p-4 rounded-2xl border border-cyan-500/10 transition-all duration-200 ${
+                    pathname === "/thermawatch"
+                      ? "bg-cyan-500/10 text-cyan-300"
+                      : "text-cyan-100/70 hover:bg-slate-900 hover:text-white"
+                  }`}
+                >
+                  <span className="text-lg font-medium">ThermaWatch</span>
+                  {pathname === "/thermawatch" && <div className="w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
+                </Link>
+
                 {/* Features Collapsible Accordion */}
                 <div className="flex flex-col">
                   <button
@@ -292,6 +336,24 @@ export function Navbar() {
                         >
                           <span className="text-base font-bold text-cyan-300">All Features</span>
                           {pathname === "/features" && <div className="w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
+                        </Link>
+
+                        {/* ThermaWatch inside mobile Features accordion */}
+                        <Link
+                          href="/thermawatch"
+                          className={`flex items-center justify-between p-2.5 rounded-xl transition-all duration-150 ${
+                            pathname === "/thermawatch"
+                              ? "bg-cyan-500/10 text-cyan-300"
+                              : "text-cyan-100/60 hover:bg-slate-900 hover:text-white"
+                          }`}
+                        >
+                          <span className="text-base font-extrabold text-white flex items-center gap-2">
+                            ThermaWatch App
+                            <span className="rounded-full bg-cyan-400/20 px-2 py-0.5 text-[8px] font-bold text-cyan-300 uppercase tracking-wider">
+                              New
+                            </span>
+                          </span>
+                          {pathname === "/thermawatch" && <div className="w-1 h-1 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />}
                         </Link>
 
                         {featurePages.map((page) => {
