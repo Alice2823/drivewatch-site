@@ -246,7 +246,7 @@ function HeroDashboard() {
       <div className="flex items-center justify-between border-b border-cyan-300/10 pb-4">
         <div className="flex items-center gap-3">
           <Image
-            src="/images/thermawatch-logo-2.png"
+            src="/images/thermawatch-icon.png"
             alt="ThermaWatch logo"
             width={44}
             height={44}
@@ -412,7 +412,7 @@ export function ThermaWatchClient() {
 
             <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-300/25 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-100">
               <Image
-                src="/images/thermawatch-logo.png"
+                src="/images/thermawatch-icon.png"
                 alt=""
                 width={26}
                 height={26}
